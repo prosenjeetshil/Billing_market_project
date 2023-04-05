@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     'sales_app',
     'stocks_app',
     'rest_framework',
-    'phonenumber_field',
-    'AUTH_USER_MODEL'
+    'phonenumber_field'
+   
 
 ]
 
