@@ -3,7 +3,7 @@
 ## Problem Statement
 you have to provide business solution for the wart/shop to effectively generate invoices, your application should be able manage the inventory of that particular shop/mart, your application should be able manage the data of customers and their orders. your application should be able to generate the reports on daily, monthly, quarterly and yearly basis. your application should be able to manage all the orders. feature of offers to be given on products or events. your application should be able to calculate the amount with GST and offers.
 
-### bullet points
+### Bullet points
 - Develop a business solution for a shop/mart to generate invoices effectively
 - Manage the inventory of the shop/mart through the application
 - Manage customer data and their orders
@@ -20,3 +20,8 @@ you have to provide business solution for the wart/shop to effectively generate 
 4. **`purchase_app`** - managing the orders placed by customers.
 5. **`sales_app`** - managing the sales made by the shop/mart.
 6. **`report_app`** - generating reports on a daily, monthly, quarterly, and yearly basis.
+
+## DB Diagram
+
+ ![db diagram](/billing_market_frontend/public/dbdiagram.png)
+
