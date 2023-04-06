@@ -1,4 +1,4 @@
-import './App.css';
+import './App.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Daily_sales from './Components/Sales_components/Daily_sales';
 import Monthly_sales from './Components/Sales_components/Monthly_sales';

@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
+
 import {
     FaBars,
     FaRegChartBar,
-    FaSalesforce,
+   
     FaTh,
 } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
@@ -13,17 +13,17 @@ function Sidebar({children}) {
         {
             path:"/Daily_Sales",
             name:"Daily sales",
-            icon:<FaSalesforce/>
+            icon:<FaRegChartBar/>
         },
         {
             path:"/Weekly_Sales",
             name:"Weekly sales",
-            icon:<FaRegChartBar/>
+            icon:<FaTh/>
         },
         {
             path:"/Quaterly_Sales",
             name:"Quaterly sales",
-            icon:<FaTh/>
+            icon:<FaRegChartBar/>
          },
          {
             path:"/Monthly_Sales",
@@ -49,10 +49,12 @@ function Sidebar({children}) {
                     </NavLink>
                 ))
             } 
+           
         </div>
+       
         <main>{children}</main>
-    </div>
-
+   
+        </div>
     </>
   )
 }
