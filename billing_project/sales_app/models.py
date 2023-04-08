@@ -1,8 +1,15 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-from auth_app.models import User
+# from auth_app.models import User
 from stocks_app.models import Product
 
+
+# class TempUser(models.Model):
+#     temp_user_id = models.BigAutoField(primary_key=True)
+#     temp_user_name = models.CharField(max_length=30)
+
+#     def __str__(self) -> str:
+#         return f'{self.temp_user_name}'
 
 class Customer(models.Model):
     customer_id = models.BigAutoField(primary_key=True)
@@ -19,7 +26,7 @@ class Invoice(models.Model):
     customer = models.ForeignKey(Customer,on_delete=models.CASCADE,related_name='invoices')
     total_cost_without_gst = models.FloatField(default=0.0)
     total_cost_with_gst = models.FloatField(default=0.0)
-    invoice_created_by = models.ForeignKey(User,on_delete=models.DO_NOTHING,related_name='user')
+    # invoice_created_by = models.ForeignKey(User,on_delete=models.DO_NOTHING,related_name='user')
 
     def __str__(self) -> str:
         return f'{self.invoice_number}'
