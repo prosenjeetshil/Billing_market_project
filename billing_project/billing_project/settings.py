@@ -42,9 +42,15 @@ INSTALLED_APPS = [
     'reports_app',
     'sales_app',
     'stocks_app',
+    'faker_app',
     'rest_framework',
     'phonenumber_field',
+    'corsheaders',
 ]
+CORS_ORIGIN_WHITELIST = (
+'http://localhost:3000',  
+'http://127.0.0.1:3000',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'billing_project.urls'

@@ -1,9 +1,14 @@
 from django.contrib import admin
-from .models import Customer
-# from stocks_app.models import Product
+from .models import Invoice, InvoiceProduct
 
-# Register your models here.
-class CustomerAdmin(admin.ModelAdmin):
-    list_display = ['customer_id','customer_name','customer_contact','customer_address']
+class InvoiceAdmin(admin.ModelAdmin):
+    list_display = ['invoice_id','invoice_number','customer']
 
-admin.site.register(Customer, CustomerAdmin)
+admin.site.register(Invoice, InvoiceAdmin)
+
+
+class InvoiceProductAdmin(admin.ModelAdmin):
+    list_display = ['invoice_product_id','invoice','product_invoice','invoice_product_quantity']
+
+admin.site.register(InvoiceProduct, InvoiceProductAdmin)
+
