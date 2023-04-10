@@ -13,6 +13,7 @@ function App() {
     
     <>
     <BrowserRouter>
+    {/* sidebar commented because of some issue with rendering */}
     {/* <Sidebar> */}
     <Routes>
       <Route path='/Daily_Sales' element={<Daily_sales/>}/>
