@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'reports_app',
     'sales_app',
     'stocks_app',
+    'faker_app',
     'rest_framework',
     'phonenumber_field',
 ]
