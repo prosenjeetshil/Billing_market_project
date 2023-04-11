@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
 const InvoiceProductComponent = ({ invoiceId }) => {
   const [productId, setProductId] = useState('');
@@ -14,7 +15,7 @@ const InvoiceProductComponent = ({ invoiceId }) => {
         product_invoice: productId,
         invoice_product_quantity: quantity,
       });
-      alert('Invoice product created successfully!');
+      alert('Invoice product added successfully!');
       setProductId('');
       setQuantity('');
     } catch (err) {
@@ -24,6 +25,7 @@ const InvoiceProductComponent = ({ invoiceId }) => {
   };
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
       <h1>this is invoice_id : {invoiceId}</h1>
       <label htmlFor='product_id'>Product:</label>
@@ -33,6 +35,8 @@ const InvoiceProductComponent = ({ invoiceId }) => {
       <br/>
       <button type="submit">Add Invoice Product</button>
     </form>
+    <NavLink to={`/invoice/${invoiceId}`}><button className='btn btn-success'>Generate Invoice</button></NavLink>
+    </>
   );
 };
 

@@ -7,6 +7,7 @@ import Weeklysales from './Components/Sales_components/Weeklysales';
 import Sidebar from "./Components/Sidebar";
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import BillingComponent from './Components/Sales_components/BillingComponent/BillingComponent';
+import ShowInvoice from './Components/Sales_components/BillingComponent/ShowInvoice';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path='/Quaterly_Sales' element={<Quaterly_sales/>}/>
       <Route path='/Weekly_Sales' element={<Weeklysales/>}/>
       <Route path='/billing' element={<BillingComponent/>}/>
+      <Route path='/invoice/:id' element={<ShowInvoice/>}/>
     </Routes>
     {/* </Sidebar> */}
     </BrowserRouter>
