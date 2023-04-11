@@ -28,6 +28,7 @@ router.register('product', ProductViewSet, basename='product')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('a1/', include('faker_app.urls')),
     path('faker/', include('faker_app.urls')),
     path('api/', include(router.urls)),
 ]

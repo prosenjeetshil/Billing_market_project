@@ -11,4 +11,3 @@ class InvoiceProductAdmin(admin.ModelAdmin):
     list_display = ['invoice_product_id','invoice','product_invoice','invoice_product_quantity']
 
 admin.site.register(InvoiceProduct, InvoiceProductAdmin)
-

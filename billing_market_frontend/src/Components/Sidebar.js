@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 import React from 'react';
 
 import {
@@ -30,10 +32,15 @@ function Sidebar({children}) {
             name:"Monthly sales",
             icon:<FaTh/>
          },
+         {
+            path:"/billing",
+            name:"Billing",
+            icon:<FaTh/>
+         },
 ]
   return (
     <>
-    <div className='container mr-50'>
+    <div className='container '>
         <div className='sidebar'>
         <div className='top_section'>
             <h1 className='logo'>Logo</h1>
@@ -60,3 +67,4 @@ function Sidebar({children}) {
 }
 
 export default Sidebar;
+>>>>>>> 3c636532e766dc3e6f9722f563c7ed4c262129f6
