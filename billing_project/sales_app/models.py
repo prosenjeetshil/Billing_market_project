@@ -26,7 +26,7 @@ class Invoice(models.Model):
     customer = models.ForeignKey(Customer,on_delete=models.CASCADE,related_name='invoices')
     total_cost_without_gst = models.FloatField(default=0.0)
     total_cost_with_gst = models.FloatField(default=0.0)
-    invoice_created_by = models.ForeignKey(User,on_delete=models.DO_NOTHING,related_name='user',blank=True)
+    # invoice_created_by = models.ForeignKey(User,on_delete=models.DO_NOTHING,related_name='user',blank=True)
 
     def __str__(self) -> str:
         return f'{self.invoice_number}'
