@@ -11,6 +11,7 @@ import Sales_by_category from './Components/Sales_components/Sales_by_categeory'
 import Productlist from './Components/Sales_components/Productlist';
 import BillingComponent from './Components/Sales_components/BillingComponent/BillingComponent';
 import ShowInvoice from './Components/Sales_components/BillingComponent/ShowInvoice';
+import SalesReport from './Components/Sales_components/SalesReport';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Route path='/Product_list' element={<Productlist/>}/>
       <Route path='/billing' element={<BillingComponent/>}/>
       <Route path='/invoice/:id' element={<ShowInvoice/>}/>
+      <Route path='/salesreport' element={<SalesReport/>}/>
     </Routes>
     {/* </Sidebar> */}
     </BrowserRouter>
