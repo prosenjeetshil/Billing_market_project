@@ -31,4 +31,5 @@ urlpatterns = [
     path('a1/', include('faker_app.urls')),
     path('faker/', include('faker_app.urls')),
     path('api/', include(router.urls)),
+    path('sales/',include('sales_app.urls'))
 ]

@@ -26,7 +26,7 @@ class Invoice(models.Model):
     customer = models.ForeignKey(Customer,on_delete=models.CASCADE,related_name='invoices')
     total_cost_without_gst = models.FloatField(default=0.0)
     total_cost_with_gst = models.FloatField(default=0.0)
-    invoice_created_by = models.ForeignKey(User,on_delete=models.DO_NOTHING,related_name='user',blank=True)
+    # invoice_created_by = models.ForeignKey(User,on_delete=models.DO_NOTHING,related_name='user',blank=True)
 
     def __str__(self) -> str:
         return f'{self.invoice_number}'
@@ -42,6 +42,8 @@ class InvoiceProduct(models.Model):
     invoice_product_cost_per_quantity_with_offer = models.FloatField(default=0.0)
     invoice_product_total_cost_with_gst = models.FloatField(default=0.0)
     invoice_product_total_cost_with_offer = models.FloatField(default=0.0)
+    invoice_product_date = models.DateField(auto_now_add=True)
+   
 
     def __str__(self) -> str:
         return f'{self.product_invoice}'
