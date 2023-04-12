@@ -21,6 +21,7 @@ class ProductCategorySerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    product_category_name = ProductCategorySerializer(many=True, read_only=True)
     class Meta:
         model = Product
         fields = '__all__'

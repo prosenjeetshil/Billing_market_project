@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 import React from 'react';
 
 import {
@@ -65,3 +67,4 @@ function Sidebar({children}) {
 }
 
 export default Sidebar;
+>>>>>>> 3c636532e766dc3e6f9722f563c7ed4c262129f6
