@@ -52,6 +52,11 @@ CORS_ORIGIN_WHITELIST = (
 'http://127.0.0.1:3000',
 )
 
+<<<<<<< HEAD
+=======
+CORS_ALLOWED_ORIGINS = [    'http://localhost:3000',]
+CORS_ORIGIN_ALLOW_ALL = True
+>>>>>>> 8b55dcceec24af00977356a7f8dc82530f48b3c8
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -62,7 +67,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+<<<<<<< HEAD
   
+=======
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+>>>>>>> 8b55dcceec24af00977356a7f8dc82530f48b3c8
 ]
 
 ROOT_URLCONF = 'billing_project.urls'

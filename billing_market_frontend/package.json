@@ -9,6 +9,10 @@
     "axios": "^1.3.5",
     "bootstrap": "^5.2.3",
     "fs": "^0.0.1-security",
+<<<<<<< HEAD
+=======
+    "html2canvas": "^1.4.1",
+>>>>>>> 8b55dcceec24af00977356a7f8dc82530f48b3c8
     "jspdf": "^2.5.1",
     "react": "^18.2.0",
     "react-data-table-component": "^7.5.3",

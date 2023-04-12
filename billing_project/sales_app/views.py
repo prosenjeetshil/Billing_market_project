@@ -23,15 +23,14 @@ class InvoiceProductViewSet(viewsets.ModelViewSet):
     serializer_class = InvoiceProductSerializer
 
 
-class InvoiceProductDateRangwView(APIView):
-    def get(self,request,start_date,end_date):
-        invoice_products = InvoiceProduct.objects.filter(invoice_product_date_range=[start_date,end_date])
-        total_cost = invoice_products.aggregate(Sum('invoice_product_total_cost'))['invoice_product_total_cost_sum']
-        total_cost_with_offer = invoice_products.aggregate(Sum('invoice_product_total_cost_with_offer'))['invoice_product_total_cost_with_offer_sum']
-
+class InvoiceProductDateRangeView(APIView):
+    def get(self, request, start_date, end_date):
+        invoice_products = InvoiceProduct.objects.filter(invoice_product_date__range=[start_date, end_date])
+        total_cost = invoice_products.aggregate(Sum('invoice_product_total_cost'))['invoice_product_total_cost__sum']
+        total_cost_with_offer = invoice_products.aggregate(Sum('invoice_product_total_cost_with_offer'))['invoice_product_total_cost_with_offer__sum']
         data = {
-            'invoice_products':invoice_products.values(),
+            'invoice_products': invoice_products.values(),
             'total_cost': total_cost,
-            'total_cost_with_offer':total_cost_with_offer
+            'total_cost_with_offer': total_cost_with_offer,
         }
         return Response(data)
