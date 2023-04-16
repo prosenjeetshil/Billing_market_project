@@ -42,16 +42,12 @@ INSTALLED_APPS = [
     'reports_app',
     'sales_app',
     'stocks_app',
-    'faker_app',
     'rest_framework',
     'phonenumber_field',
+    'expenses_app',
     'corsheaders',
+    'rest_framework_simplejwt',
 ]
-CORS_ORIGIN_WHITELIST = (
-'http://localhost:3000',  
-'http://127.0.0.1:3000',
-)
-
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -62,7 +58,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-   
 ]
 
 ROOT_URLCONF = 'billing_project.urls'
@@ -141,3 +136,36 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "auth_app.User"
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME' : timedelta(weeks= 5),
+    'REFRESH_TOKEN_LIFETIME' : timedelta(days = 7),
+    'AUTH_HEADER_TYPES': ('Bearer','JWT'),  
+    'ROTATE_REFRESH_TOKENS': True,
+     'BLACKLIST_AFTER_ROTATION': True
+}
+
+AUTH_USER_MODEL = 'auth_app.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+
+'DEFAULT_PERMISSION_CLASSES':[
+     'rest_framework.permissions.IsAuthenticated'
+ ],
+}

@@ -1,26 +1,65 @@
-import React from 'react'
+import axios from "axios";
+import {useState} from "react";
+import { NavLink } from "react-router-dom";
+// Define the Login function.
+function LogIn (){
+     const [username, setUsername] = useState('');
+     const [password, setPassword] = useState('');
+     // Create the submit method.
+     const submit = async e => {
+          e.preventDefault();
+          const user = {
+                username: username,
+                password: password
+               };
+          // Create the POST requuest
+          const {data} = await                                                                            
+                        axios.post('http://127.0.0.1:8000/token/',
+                         user ,{headers: 
+                        {'Content-Type': 'application/json',
+                      'Authorization': `Bearer ${localStorage.getItem('access_token')}`}},
+                         {withCredentials:true});
 
-function LogIn() {
-
-  return (
-    <>
-        <div className='container'>
-          <center><h1 style={{color:'blue'}}><i>LOGIN FORM..</i></h1></center>
-          <form>
-            <label htmlFor='un'>USERNAME</label>
-            <input type='text' id='un' className='form-control'/>
-            <br/>
-            <br/>
-            <label htmlFor='pwd'>PASSWORD</label>
-            <input type='password' id='pwd' className='form-control'/>
-            <br/>
-            <br/>
-            <center><input type='submit' value='SUBMIT' className='btn btn-outline-primary col-3 me-3'/>
-            <input type='reset' value='RESET' className='btn btn-outline-warning col-3'/></center>
-          </form>
-        </div>
-    </>
-  )
+         // Initialize the access & refresh token in localstorage.      
+         localStorage.clear();
+         localStorage.setItem('access_token', data.access);
+         localStorage.setItem('refresh_token', data.refresh);
+         axios.defaults.headers.common['Authorization'] = 
+                                         `Bearer ${data['access']}`;
+         window.location.href = '/login'
+    }
+    return(
+      <div className="Auth-form-container">
+        <form className="Auth-form" onSubmit={submit}>
+          <div className="Auth-form-content">
+            <h3 className="Auth-form-title">Sign In</h3>
+            <div className="form-group mt-3">
+              <label>Username</label>
+              <input className="form-control mt-1" 
+                placeholder="Enter Username" 
+                name='username'  
+                type='text' value={username}
+                required 
+                onChange={e => setUsername(e.target.value)}/>
+            </div>
+            <div className="form-group mt-3">
+              <label>Password</label>
+              <input name='password' 
+                type="password"     
+                className="form-control mt-1"
+                placeholder="Enter password"
+                value={password}
+                required
+                onChange={e => setPassword(e.target.value)}/>
+            </div>
+            <NavLink to='/email'><u>forgot password</u></NavLink>
+            <div className="d-grid gap-2 mt-3">
+              <button type="submit" 
+                 className="btn btn-primary">Submit</button>
+            </div>
+          </div>
+       </form>
+     </div>
+     )
 }
-
-export default LogIn
+export default LogIn;
