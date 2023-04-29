@@ -30,15 +30,10 @@ function Sidebar({children}) {
             name:"Monthly sales",
             icon:<FaTh/>
          },
-         {
-            path:"/billing",
-            name:"Billing",
-            icon:<FaTh/>
-         },
 ]
   return (
     <>
-    <div className='container '>
+    <div className='container mr-50'>
         <div className='sidebar'>
         <div className='top_section'>
             <h1 className='logo'>Logo</h1>

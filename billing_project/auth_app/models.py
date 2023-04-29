@@ -10,7 +10,6 @@ class User(AbstractUser):
         ('staff','staff'),
         ('manager','manager')
     )
-
     address = models.TextField(blank=True)
     contact = PhoneNumberField(region='IN',blank=True)
     city = models.CharField(max_length=30,blank=True)
@@ -18,6 +17,3 @@ class User(AbstractUser):
     role = models.CharField(max_length=20,default='',blank=True,choices=ROLES)
 
     REQUIRED_FIELDS =('email',)
-
-
-
