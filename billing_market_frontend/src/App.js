@@ -4,45 +4,41 @@ import Daily_sales from './Components/Sales_components/Daily_sales';
 import Monthly_sales from './Components/Sales_components/Monthly_sales';
 import Quaterly_sales from './Components/Sales_components/Quaterly_sales';
 import Weeklysales from './Components/Sales_components/Weeklysales';
-import Sidebar from "./Components/Sidebar";
+// import Sidebar from "./Components/Sidebar";
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
-<<<<<<< HEAD
-import Invoice from './Components/Sales_components/Invoice';
-import Sales_by_category from './Components/Sales_components/Sales_by_categeory';
-import Productlist from './Components/Sales_components/Productlist';
-=======
-import BillingComponent from './Components/Sales_components/BillingComponent/BillingComponent';
->>>>>>> 3c636532e766dc3e6f9722f563c7ed4c262129f6
+import Add from './Components/Expenses_components/Add';
+import Show from './Components/Expenses_components/Show';
+import Update from './Components/Expenses_components/Update';
+import Delete from './Components/Expenses_components/Delete';
+import AddUser from './Components/Auth_components/Employee_Componenets/AddUser';
+import ShowUser from './Components/Auth_components/Employee_Componenets/ShowUser';
+import Edit from './Components/Auth_components/Employee_Componenets/Edit';
+import DeleteUser from './Components/Auth_components/Employee_Componenets/DeleteUser';
+import NavBar from './Components/Auth_components/Layout/NavBar';
+import LogIn from './Components/LogIn';
+import axios from './Components/Auth_components/interceptor/axios';
+import UpdatePassword from './Components/UpdatePassword';
+import Email from './Components/Email';
 
 function App() {
   return (
-    
     <>
-    <BrowserRouter>
-<<<<<<< HEAD
-
-=======
-    {/* sidebar commented because of some issue with rendering */}
-    {/* <Sidebar> */}
->>>>>>> 3c636532e766dc3e6f9722f563c7ed4c262129f6
-    <Routes>
-      <Route path='/Daily_Sales' element={<Daily_sales/>}/>
-      <Route path='/Monthly_Sales' element={<Monthly_sales/>}/>
-      <Route path='/Quaterly_Sales' element={<Quaterly_sales/>}/>
-      <Route path='/Weekly_Sales' element={<Weeklysales/>}/>
-<<<<<<< HEAD
-      <Route path='/Invoice' element={<Invoice/>}/>
-
-      <Route path='/Product_list' element={<Productlist/>}/>
-    </Routes>
-  
-=======
-      <Route path='/billing' element={<BillingComponent/>}/>
-    </Routes>
-    {/* </Sidebar> */}
->>>>>>> 3c636532e766dc3e6f9722f563c7ed4c262129f6
+    < BrowserRouter>
+    <NavBar/>
+      <Routes>
+      <Route path='/add' element={<Add/>}/>
+      <Route path='/show' element={<Show/>}/>
+      <Route path='/update/:pk/' element={<Update/>}/>
+      <Route path='/delete/:pk/' element={<Delete/>}/>
+      <Route path='/auth_component/add' element={<AddUser/>}/>
+      <Route path='/auth_component/show' element={<ShowUser/>}/>
+      <Route path='/auth_component/edit/:userId/' element={<Edit/>}/>
+      <Route path='/auth_component/delete/:userId/' element={<DeleteUser/>}/>
+      <Route path='/login' element={<LogIn/>} />
+      <Route path='/updatepassword/:UserId' element={<UpdatePassword/>} />
+      <Route path='/email' element={<Email/>} />
+      </Routes>
     </BrowserRouter>
-  
     </>
   );
 }

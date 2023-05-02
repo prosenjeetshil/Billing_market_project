@@ -17,18 +17,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from sales_app.views import CustomerViewSet, InvoiceViewSet, InvoiceProductViewSet
-from stocks_app.views import OffersViewSet, GSTViewSet, ProductCategoryViewSet, ProductViewSet
+from auth_app.views import UserViewset
+from rest_framework_simplejwt.views import token_obtain_pair, token_refresh
+from rest_framework_simplejwt import views as jwt_views
 
 router = DefaultRouter()
-router.register('customer', CustomerViewSet, basename='customer')
-router.register('invoice', InvoiceViewSet, basename='invoice')
-router.register('invpro', InvoiceProductViewSet, basename='invpro')
-router.register('product', ProductViewSet, basename='product')
+router.register('user',UserViewset,basename='user')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('a1/', include('faker_app.urls')),
-    path('faker/', include('faker_app.urls')),
-    path('api/', include(router.urls)),
+    path('apii/',include('expenses_app.urls')),
+    path('access/',token_obtain_pair),
+    path('refresh/',token_refresh),
+    path('api/',include(router.urls)),
+     path('token/', 
+          jwt_views.TokenObtainPairView.as_view(), 
+          name ='token_obtain_pair'),
+     path('token/refresh/', 
+          jwt_views.TokenRefreshView.as_view(), 
+          name ='token_refresh'),
+    path('auth/',include('auth_app.urls')),
 ]
